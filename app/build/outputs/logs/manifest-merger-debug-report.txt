@@ -1,0 +1,188 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:2:1-54:12
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:2:1-96:12
+	package
+		INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:10:5-67
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:5:5-79
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:11:5-79
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:5:22-76
+uses-permission#com.google.android.gms.permission.AD_ID
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:6:5-79
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:12:5-79
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:6:22-76
+queries
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:9:5-33:15
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:14:5-44:15
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:14:5-44:15
+package#ir.mservices.market
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:10:9-55
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:15:9-55
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:15:9-55
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:10:18-52
+package#com.farsitel.bazaar
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:11:9-55
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:16:9-55
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:16:9-55
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:11:18-52
+package#com.android.vending
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:12:9-55
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:17:9-55
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:17:9-55
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:12:18-52
+intent#action:name:android.intent.action.VIEW+data:scheme:myket
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:13:9-16:18
+action#android.intent.action.VIEW
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:14:13-65
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:14:21-62
+data
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:15:13-44
+	android:scheme
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:15:19-41
+intent#action:name:android.intent.action.VIEW+data:scheme:bazaar
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:17:9-20:18
+intent#action:name:android.intent.action.VIEW+data:scheme:market
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:21:9-24:18
+intent#action:name:android.intent.action.VIEW+data:scheme:http
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:25:9-28:18
+intent#action:name:android.intent.action.VIEW+data:scheme:https
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:29:9-32:18
+application
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:35:5-53:19
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:35:5-53:19
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:46:5-94:19
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:46:5-94:19
+	android:extractNativeLibs
+		INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+	android:label
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:37:9-31
+	android:icon
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:38:9-43
+	android:allowBackup
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:39:9-35
+	android:theme
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:40:9-73
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:36:9-28
+activity#com.jaber.brickdefense.MainActivity
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:42:9-51:20
+	android:screenOrientation
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:45:13-49
+	android:exported
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:44:13-36
+	android:configChanges
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:46:13-74
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:43:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:47:13-50:29
+action#android.intent.action.MAIN
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:48:17-69
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:48:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:49:17-77
+	android:name
+		ADDED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml:49:27-74
+uses-sdk
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:6:5-8:51
+MERGED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:6:5-8:51
+	tools:overrideLibrary
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:8:9-48
+	android:targetSdkVersion
+		INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/AndroidManifest.xml
+receiver#com.adivery.sdk.core.UninstallReceiver
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:49:9-58:20
+	android:enabled
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:51:13-35
+	android:exported
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:52:13-36
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:50:13-66
+intent-filter#action:name:android.intent.action.PACKAGE_FULLY_REMOVED+data:scheme:package
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:53:13-57:29
+action#android.intent.action.PACKAGE_FULLY_REMOVED
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:54:17-86
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:54:25-83
+meta-data#com.google.android.gms.ads.AD_MANAGER_APP
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:60:9-62:36
+	android:value
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:62:13-33
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:61:13-69
+activity#com.adivery.sdk.networks.adivery.AdActivity
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:64:9-67:55
+	android:screenOrientation
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:67:13-52
+	android:exported
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:66:13-37
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:65:13-71
+activity#com.adivery.sdk.networks.adivery.DeepLinkActivity
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:68:9-83:20
+	android:launchMode
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:71:13-44
+	android:exported
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:70:13-36
+	android:theme
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:72:13-72
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:69:13-77
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:${applicationId}+data:scheme:adivery
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:73:13-82:29
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:com.jaber.brickdefense+data:scheme:adivery
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:73:13-82:29
+category#android.intent.category.DEFAULT
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:76:17-76
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:76:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:77:17-78
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:77:27-75
+meta-data#com.adivery.sdk.sentry.dsn
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:85:9-87:97
+	android:value
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:87:13-94
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:86:13-54
+service#com.adivery.data.location.LocationJobService
+ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:89:9-93:36
+	android:exported
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:91:13-37
+	android:permission
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:92:13-69
+	tools:targetApi
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:93:13-33
+	android:name
+		ADDED from [adivery-sdk.aar] /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/AndroidManifest.xml:90:13-72

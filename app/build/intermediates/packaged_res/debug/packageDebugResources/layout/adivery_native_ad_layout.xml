@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    لایوت اختصاصی تبلیغ همسان ادیوری: ردیف فشرده و افقی که زیر دکمه
+    «شروع ترن» می‌نشیند. رنگ‌ها هم‌خانواده تم بازی آجرشکن است:
+    پس‌زمینه پنلی تیره، متن روشن و دکمه با رنگ تاکیدی آبی بازی.
+    فونت عمداً درشت و خوانا انتخاب شده است.
+    شناسه‌های adivery_* همان شناسه‌های الزامی SDK ادیوری هستند.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adivery_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#1A1A28"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/adivery_icon"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="آیکون تبلیغ" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/adivery_headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#E8E8F0"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/adivery_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#AAAABF"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/adivery_call_to_action"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:textColor="#10151C"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/ad_cta_bg" />
+</LinearLayout>
