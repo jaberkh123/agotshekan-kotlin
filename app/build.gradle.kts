@@ -11,8 +11,8 @@ android {
         applicationId = "com.jaber.brickdefense"   // نام پکیج دقیقاً مثل نسخه اصلی
         minSdk = 24
         targetSdk = 34
-        versionCode = 12        // یک واحد بالاتر از نسخه WebView (۱۱) تا به‌عنوان آپدیت نصب شود
-        versionName = "2.1"
+        versionCode = 13        // +۱: رفع کرش ConcurrentModificationException
+        versionName = "2.2"
     }
 
     buildTypes {

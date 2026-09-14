@@ -672,7 +672,8 @@ class GameEngine {
         val SUB = 4 // زیرگام برای جلوگیری از رد شدن از داخل دشمن
         val sdt = dt / SUB
         for (s in 0 until SUB) {
-            for (b in activeBalls) {
+            // کپی لحظه‌ای: consumeNormalHit ممکن است حین حرکت، جوانه‌ی جدید به activeBalls اضافه کند (CME)
+            for (b in activeBalls.toList()) {
                 if (b.dead || b.delay > 0) continue
                 moveBall(b, sdt)
             }
@@ -765,8 +766,8 @@ class GameEngine {
             return
         }
 
-        // برخورد با دشمنان
-        for (e in enemies) {
+        // برخورد با دشمنان — کپی لحظه‌ای: کشتن دشمن شکافتی، ذرّه‌های جدید به enemies اضافه می‌کند (CME)
+        for (e in enemies.toList()) {
             if (e.dead || e === b.ignore) continue
             val c = enemyRect(e)
             val nx = clamp(b.x, c.x, c.x + c.w)
@@ -1059,7 +1060,8 @@ class GameEngine {
         val c = enemyRect(iron)
         val x1 = c.x + c.w / 2
         val y1 = c.y + c.h / 2
-        for (e in enemies) {
+        // کپی لحظه‌ای: damageEnemy حین زدن همه‌ی خانه‌ها ممکن است ذرّه‌ی شکافتی اضافه کند (CME)
+        for (e in enemies.toList()) {
             if (e.dead) continue
             val cr = enemyRect(e)
             if (e !== iron) {
@@ -1166,7 +1168,8 @@ class GameEngine {
                 damageEnemy(e, dmgTo(e), dmgTxtX, dmgTxtY, null)
             }
             val R = st.radius * ts
-            for (e2 in enemies) {
+            // کپی لحظه‌ای: آسیب آبشاری ممکن است دشمن شکافتی را بکشد و ذرّه اضافه کند (CME)
+            for (e2 in enemies.toList()) {
                 if (e2 === e || e2.dead) continue
                 if (jellyImmune(e2)) continue // ژله‌ای در برابر بمب مصون است
                 val c2 = enemyRect(e2)
