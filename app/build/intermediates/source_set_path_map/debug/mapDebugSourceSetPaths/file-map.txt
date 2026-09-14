@@ -1,8 +1,0 @@
-com.jaber.brickdefense.app-adivery-sdk-0 /home/z/.gradle/caches/transforms-4/9319b268aa643ed1597eab14059ea72f/transformed/adivery-sdk/res
-com.jaber.brickdefense.app-pngs-1 /home/z/my-project/workspace/agotshekan-kotlin/app/build/generated/res/pngs/debug
-com.jaber.brickdefense.app-resValues-2 /home/z/my-project/workspace/agotshekan-kotlin/app/build/generated/res/resValues/debug
-com.jaber.brickdefense.app-packageDebugResources-3 /home/z/my-project/workspace/agotshekan-kotlin/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.jaber.brickdefense.app-packageDebugResources-4 /home/z/my-project/workspace/agotshekan-kotlin/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.jaber.brickdefense.app-debug-5 /home/z/my-project/workspace/agotshekan-kotlin/app/build/intermediates/merged_res/debug/mergeDebugResources
-com.jaber.brickdefense.app-debug-6 /home/z/my-project/workspace/agotshekan-kotlin/app/src/debug/res
-com.jaber.brickdefense.app-main-7 /home/z/my-project/workspace/agotshekan-kotlin/app/src/main/res
