@@ -137,8 +137,15 @@ private fun UiController.drawCards(canvas: Canvas) {
             fillRR(canvas, r.left, r.top, r.width(), r.height(), 12f * dp, parse("rgba(26,26,40,0.55)"))
             strokeRR(canvas, r.left, r.top, r.width(), r.height(), 12f * dp, parse("#2c2c42"), 1f)
         }
-        // عنوان (آیکن + نام)
-        textC(canvas, d.icon + " " + d.name, r.centerX(), r.top + 18f * dp, 11f * dp, parse(d.color))
+        // عنوان (آیکن + نام) — توپ‌های خارج از نوبت کمرنگ‌تر
+        var titleColor = parse(d.color)
+        if (!active) {
+            titleColor = Color.argb(
+                (255 * 0.45).roundToInt(),
+                Color.red(titleColor), Color.green(titleColor), Color.blue(titleColor)
+            )
+        }
+        textC(canvas, d.icon + " " + d.name, r.centerX(), r.top + 18f * dp, 11f * dp, titleColor)
 
         // دکمه + ارتقا (پایین چپ)
         val plusR = 13f * dp
@@ -181,9 +188,9 @@ private fun UiController.drawStartOverlay(canvas: Canvas) {
         left = min(left, r.left); top = min(top, r.top)
         right = max(right, r.right); bottom = max(bottom, r.bottom)
     }
-    // پس‌زمینه هم‌رنگ کارت‌های غیرفعال تا فضای خالی اطراف دکمه دیده نشود
-    fillRR(canvas, left, top, right - left, bottom - top, 12f * dp, parse("rgba(26,26,40,0.55)"))
-    strokeRR(canvas, left, top, right - left, bottom - top, 12f * dp, parse("#2c2c42"), 1f)
+    // پس‌زمینه‌ی کاملاً کدر (بدون شفافیت) — هم‌رنگ کارت‌های فعال تا هیچ‌چیز از پشت دکمه دیده نشود
+    fillRR(canvas, left, top, right - left, bottom - top, 12f * dp, parse("#1a1a28"))
+    strokeRR(canvas, left, top, right - left, bottom - top, 12f * dp, parse("#3a3a55"), 1.5f)
     // دکمه اصلی: یک‌سوم کوتاه‌تر از قبل (ارتفاع = ۲/۳ ناحیه) و وسط‌چین
     val inset = 12f * dp
     val bh = (bottom - top) * 2f / 3f

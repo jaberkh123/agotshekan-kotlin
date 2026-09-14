@@ -162,7 +162,8 @@ class GameEngine {
 
     val defenseY: Double get() = oy + Cfg.GRID_ROWS * ts
     val cannonY: Double get() = min(defenseY + ts * 1.25, H - bottomInset - ts * 0.45)
-    fun cannonX(i: Int): Double = ox + ts * (0.5 + i * 2)
+    // وسط‌چین: مراکز ۱،۳،۵،۷ کاشی → میانگین = ۴ = دقیقاً مرکز میدان (نسخه‌ی قبلی ۰.۵+۲i بود و گروه نیم‌کاشی به چپ می‌افتاد)
+    fun cannonX(i: Int): Double = ox + ts * (1 + i * 2)
 
     // ---------- آمار توپ‌ها بر اساس Level ----------
     fun statsFor(type: String): BallStats {

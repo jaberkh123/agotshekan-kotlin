@@ -11,8 +11,8 @@ android {
         applicationId = "com.jaber.brickdefense"   // نام پکیج دقیقاً مثل نسخه اصلی
         minSdk = 24
         targetSdk = 34
-        versionCode = 14        // +۱: رفع دکمه خروج + متن‌های منظم + دکمه شروع ترن کوچک‌تر + حذف دکمه‌های نوبت
-        versionName = "2.3"
+        versionCode = 15        // +۱: وسط‌چین شدن توپ‌ها + دکمه شروع ترن کدر + کمرنگ شدن توپ‌های خارج از نوبت
+        versionName = "2.4"
     }
 
     buildTypes {

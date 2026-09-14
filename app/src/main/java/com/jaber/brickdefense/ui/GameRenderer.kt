@@ -817,7 +817,9 @@ class GameRenderer(private val g: GameEngine) {
                 canvas.translate(cx.toFloat(), cy.toFloat())
                 canvas.rotate(Math.toDegrees(a + PI / 2).toFloat())
                 val s = ts * 1.35
+                pBmp.alpha = baseAlpha // توپ‌های خارج از نوبت کمرنگ‌تر رسم شوند
                 drawImg(canvas, topImg, -s / 2, -s / 2, s, s)
+                pBmp.alpha = 255
                 canvas.restore()
             } else {
                 // لوله توپ به سمت جهت (برداری)
@@ -846,9 +848,11 @@ class GameRenderer(private val g: GameEngine) {
             pFill.alpha = baseAlpha
             canvas.drawCircle(cx.toFloat(), cy.toFloat(), (ts * 0.38).toFloat(), pFill)
             pFill.color = parse(col)
+            if (!isActive) pFill.alpha = baseAlpha // مرکز پایه هم کمرنگ شود
             canvas.drawCircle(cx.toFloat(), cy.toFloat(), (ts * 0.28).toFloat(), pFill)
             pStroke.color = parse(if (isFiring) "#ffffff" else "rgba(255,255,255,0.5)")
             pStroke.strokeWidth = (if (isFiring) 3.5 else 2.0).toFloat()
+            if (!isActive) pStroke.alpha = (255 * 0.18).roundToInt()
             canvas.drawCircle(cx.toFloat(), cy.toFloat(), (ts * 0.28).toFloat(), pStroke)
             if (isFiring) { // هاله دور توپی که نوبتش است
                 pStroke.color = parse(col)
@@ -866,8 +870,10 @@ class GameRenderer(private val g: GameEngine) {
             // نشان روح‌های ذخیره‌شده روی توپ روحی
             if (key == "ghost" && g.ghostStock > 0) {
                 pText.color = Color.WHITE
+                if (!isActive) pText.alpha = baseAlpha
                 pText.textSize = (ts * 0.22).toFloat()
                 drawTextC(canvas, "👻" + faNum(g.ghostStock), cx, cy - ts * 0.62, pText)
+                pText.alpha = 255
             }
             // شماره ترتیب حمله (فقط توپ‌های فعال این ترن)
             if (isActive) {
