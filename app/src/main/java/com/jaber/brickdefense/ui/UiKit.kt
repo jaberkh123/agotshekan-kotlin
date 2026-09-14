@@ -146,6 +146,72 @@ object UiKit {
         return sl.height.toFloat()
     }
 
+    // کش بلوک‌های ساختاریافته (هر خط = یک بلاک راست‌چین)
+    private val blockCache = HashMap<Long, List<StaticLayout>>()
+
+    /**
+     * متن چندخطی «منظم»: هر خط (جدا شده با \n) یک بلاک مستقل راست‌چین است
+     * با فاصله‌ی یکنواخت بین بلاک‌ها — خوانایی بهتر از پاراگراف وسط‌چین.
+     * ارتفاع کل کشیده‌شده را برمی‌گرداند.
+     */
+    fun blockText(
+        canvas: Canvas, text: String, x: Float, y: Float, w: Float,
+        sizePx: Float, color: Int, gapPx: Float
+    ): Float {
+        val blocks = buildBlocks(text, w, sizePx, color, gapPx)
+        var cy = y
+        for (sl in blocks) {
+            canvas.save()
+            canvas.translate(x, cy)
+            sl.draw(canvas)
+            canvas.restore()
+            cy += sl.height + gapPx
+        }
+        return cy - gapPx - y
+    }
+
+    /** ارتفاع blockText بدون رسم (برای محاسبه‌ی پنل) */
+    fun blockTextHeight(text: String, w: Float, sizePx: Float, gapPx: Float): Float {
+        val key = blockKey(text, w, sizePx, gapPx, 0)
+        var total = 0f
+        for (line in text.split("\n")) {
+            if (total == 0f && line.isBlank()) continue
+            tp.textSize = sizePx
+            val sl = StaticLayout.Builder.obtain(line, 0, line.length, tp, w.toInt().coerceAtLeast(10))
+                .setAlignment(Layout.Alignment.ALIGN_NORMAL)
+                .setTextDirection(TextDirectionHeuristics.RTL)
+                .setLineSpacing(0f, 1.3f)
+                .build()
+            total += sl.height + gapPx
+        }
+        return (total - gapPx).coerceAtLeast(0f)
+    }
+
+    private fun blockKey(text: String, w: Float, sizePx: Float, gapPx: Float, color: Int): Long {
+        return ((text.hashCode().toLong() * 1000003) xor (w.toInt().toLong() * 31) xor
+                sizePx.toBits() * 7L xor gapPx.toBits() * 13L xor color.toLong())
+    }
+
+    private fun buildBlocks(text: String, w: Float, sizePx: Float, color: Int, gapPx: Float): List<StaticLayout> {
+        val key = blockKey(text, w, sizePx, gapPx, color)
+        blockCache[key]?.let { return it }
+        if (blockCache.size > 80) blockCache.clear()
+        val out = ArrayList<StaticLayout>()
+        for (line in text.split("\n")) {
+            tp.textSize = sizePx
+            tp.color = color
+            out.add(
+                StaticLayout.Builder.obtain(line, 0, line.length, tp, w.toInt().coerceAtLeast(10))
+                    .setAlignment(Layout.Alignment.ALIGN_NORMAL)
+                    .setTextDirection(TextDirectionHeuristics.RTL)
+                    .setLineSpacing(0f, 1.3f)
+                    .build()
+            )
+        }
+        blockCache[key] = out
+        return out
+    }
+
     /**
      * دکمه منو با استایل نسخه اصلی.
      * kind: primary | ghost | danger | disabled

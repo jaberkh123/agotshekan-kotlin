@@ -11,8 +11,8 @@ android {
         applicationId = "com.jaber.brickdefense"   // نام پکیج دقیقاً مثل نسخه اصلی
         minSdk = 24
         targetSdk = 34
-        versionCode = 13        // +۱: رفع کرش ConcurrentModificationException
-        versionName = "2.2"
+        versionCode = 14        // +۱: رفع دکمه خروج + متن‌های منظم + دکمه شروع ترن کوچک‌تر + حذف دکمه‌های نوبت
+        versionName = "2.3"
     }
 
     buildTypes {

@@ -18,6 +18,8 @@ import com.jaber.brickdefense.game.turnsPerStage
 import com.jaber.brickdefense.ui.UiController.Modal
 import com.jaber.brickdefense.ui.UiController.Screen
 import com.jaber.brickdefense.ui.UiKit.beginFrame
+import com.jaber.brickdefense.ui.UiKit.blockText
+import com.jaber.brickdefense.ui.UiKit.blockTextHeight
 import com.jaber.brickdefense.ui.UiKit.button
 import com.jaber.brickdefense.ui.UiKit.fillRR
 import com.jaber.brickdefense.ui.UiKit.panel
@@ -61,6 +63,8 @@ fun UiController.drawAll(canvas: Canvas) {
         }
     }
     drawToast(canvas)
+    // پنجره تأیید خروج روی هر صفحه‌ای (منو/زیرصفحه‌ها/بازی) رسم می‌شود
+    if (modal == Modal.EXIT) drawExitConfirm(canvas)
     // پنجره راهنمای خانه‌های جدید (اگر در صف است)
     flushHouseGuides()
 }
@@ -156,29 +160,6 @@ private fun UiController.drawCards(canvas: Canvas) {
                 Sfx.play("click")
             }
         })
-
-        // نشان ترتیب حمله (پایین راست)
-        val ox2 = r.right - 20f * dp
-        val oy2 = r.top + 44f * dp
-        val badge = if (active) faNum(activePair.indexOf(key) + 1) else "—"
-        val sel = orderSel == key
-        fillRR(canvas, ox2 - 12f * dp, oy2 - 12f * dp, 24f * dp, 24f * dp, 8f * dp,
-            parse(if (sel) "#1e88e5" else "#23233a"))
-        strokeRR(canvas, ox2 - 12f * dp, oy2 - 12f * dp, 24f * dp, 24f * dp, 8f * dp,
-            parse(if (sel) "#64b5f6" else "#3a3a55"), 1.5f)
-        textC(canvas, badge, ox2, oy2, 12f * dp, Color.WHITE)
-        regions.add(Region(RectF(ox2 - 14f * dp, oy2 - 14f * dp, ox2 + 14f * dp, oy2 + 14f * dp)) {
-            if (engine.state != "aim") return@Region
-            if (orderSel == null) {
-                orderSel = key
-            } else if (orderSel == key) {
-                orderSel = null
-            } else {
-                engine.swapOrder(orderSel!!, key)
-                toast("ترتیب حمله جابه‌جا شد")
-                orderSel = null
-            }
-        })
     }
 }
 
@@ -200,13 +181,21 @@ private fun UiController.drawStartOverlay(canvas: Canvas) {
         left = min(left, r.left); top = min(top, r.top)
         right = max(right, r.right); bottom = max(bottom, r.bottom)
     }
-    val pad = 4f * dp
-    left -= pad; top -= pad; right += pad; bottom += pad
-    UiKit.gradRR(canvas, left, top, right - left, bottom - top, 14f * dp, "#2196f3", "#0d47a1")
-    textC(canvas, "▶ شروع ترن", (left + right) / 2, top + (bottom - top) * 0.36f, 15f * dp, Color.WHITE)
+    // پس‌زمینه هم‌رنگ کارت‌های غیرفعال تا فضای خالی اطراف دکمه دیده نشود
+    fillRR(canvas, left, top, right - left, bottom - top, 12f * dp, parse("rgba(26,26,40,0.55)"))
+    strokeRR(canvas, left, top, right - left, bottom - top, 12f * dp, parse("#2c2c42"), 1f)
+    // دکمه اصلی: یک‌سوم کوتاه‌تر از قبل (ارتفاع = ۲/۳ ناحیه) و وسط‌چین
+    val inset = 12f * dp
+    val bh = (bottom - top) * 2f / 3f
+    val bl = left + inset
+    val br = right - inset
+    val bt = top + ((bottom - top) - bh) / 2f
+    val bb = bt + bh
+    UiKit.gradRR(canvas, bl, bt, br - bl, bh, 12f * dp, "#2196f3", "#0d47a1")
+    textC(canvas, "▶ شروع ترن", (bl + br) / 2, bt + bh * 0.36f, 14f * dp, Color.WHITE)
     val pairNames = activePair.map { Cfg.BALLS[it]!!.name }.joinToString(" + ")
-    textC(canvas, "نوبت: " + pairNames, (left + right) / 2, top + (bottom - top) * 0.7f, 10.5f * dp, parse("#cfe8ff"))
-    regions.add(Region(RectF(left, top, right, bottom)) {
+    textC(canvas, "نوبت: " + pairNames, (bl + br) / 2, bt + bh * 0.72f, 9.5f * dp, parse("#cfe8ff"))
+    regions.add(Region(RectF(bl, bt, br, bb)) {
         Sfx.play("click")
         if (host.onTrainStartClicked()) {
             pendingStartAfterAd = true // بعد از بسته شدن تبلیغ شروع می‌شود
@@ -527,7 +516,7 @@ private fun UiController.drawGuideScreen(canvas: Canvas) {
     var contentH = 0f
     for ((key, d) in Cfg.ENEMIES) {
         if (key == "mini") continue
-        contentH += 30f * dp + paragraphHeight(d.desc, W - pad * 3, 10.5f * dp) + 14f * dp
+        contentH += 30f * dp + blockTextHeight(d.desc, W - pad * 3, 10.5f * dp, 4f * dp) + 14f * dp
     }
     val maxScroll = max(0f, contentH - (viewBottom - viewTop))
     scrollY = scrollY.coerceIn(0f, maxScroll)
@@ -542,9 +531,9 @@ private fun UiController.drawGuideScreen(canvas: Canvas) {
         textR(canvas, d.name, W - pad - 28f * dp, y + 16f * dp, 13f * dp, Color.WHITE)
         textR(canvas, "×" + faNum(d.hpMul), W - pad - 100f * dp, y + 16f * dp, 12f * dp, parse("#ffd54f"))
         y += 30f * dp
-        // توضیح
-        val desc = d.desc.ifEmpty { "آجر ساده بدون ویژگی خاص" }
-        val hh = paragraph(canvas, desc, pad * 1.5f, y, W - pad * 3, 10.5f * dp, parse("#aaaabf"))
+        // توضیح (بولت‌های راست‌چین)
+        val desc = d.desc.ifEmpty { "• آجر ساده بدون ویژگی خاص" }
+        val hh = blockText(canvas, desc, pad * 1.5f, y, W - pad * 3, 10.5f * dp, parse("#aaaabf"), 4f * dp)
         y += hh + 14f * dp
     }
     canvas.restore()
@@ -566,7 +555,7 @@ private fun UiController.drawGameModals(canvas: Canvas) {
     }
     if (modal == Modal.UPGRADE) drawUpgradeModal(canvas)
     if (modal == Modal.GUIDEWIN && guideOpen) drawGuideWinModal(canvas)
-    if (modal == Modal.EXIT) drawExitConfirm(canvas)
+    // مودال خروج در drawAll برای همه‌ی صفحه‌ها رسم می‌شود
 }
 
 private fun UiController.drawOverlayWindow(canvas: Canvas) {
@@ -649,7 +638,8 @@ private fun UiController.drawUpgradeModal(canvas: Canvas) {
     val px = (W - panelW) / 2
     val innerW = panelW - 28f * dp
     val special = UiController.SPECIAL[key] ?: ""
-    val specialH = paragraphHeight(special, innerW, 10.5f * dp)
+    val specialGap = 4f * dp
+    val specialH = blockTextHeight(special, innerW, 10.5f * dp, specialGap)
 
     // ردیف‌های آمار
     val rows = mutableListOf<Triple<String, String, String>>() // label, value, unit
@@ -728,7 +718,8 @@ private fun UiController.drawUpgradeModal(canvas: Canvas) {
     modalScrollY = modalScrollY.coerceIn(0f, maxScroll)
     var cy = py + 52f * dp - modalScrollY
 
-    paragraph(canvas, special, px + 14f * dp, cy, innerW, 10.5f * dp, parse("#aaaabf"))
+    // بخش ویژگی‌ها: بولت‌های راست‌چین منظم
+    blockText(canvas, special, px + 14f * dp, cy, innerW, 10.5f * dp, parse("#aaaabf"), specialGap)
     cy += specialH + 12f * dp
 
     // جدول ردیف‌ها
@@ -768,7 +759,8 @@ private fun UiController.drawGuideWinModal(canvas: Canvas) {
     val innerW = panelW - 28f * dp
     val bmp: Bitmap? = Assets.get(win.img.removePrefix("img/").removeSuffix(".png"))
     val imgH = if (bmp != null) 84f * dp else 0f
-    val textH = paragraphHeight(win.text, innerW, 12f * dp)
+    val textGap = 5f * dp
+    val textH = blockTextHeight(win.text, innerW, 12f * dp, textGap)
     val contentH = 24f * dp + imgH + 30f * dp + textH + 20f * dp + 48f * dp + 24f * dp
     val panelH = min(H - 32f * dp, contentH)
     val py = (H - panelH) / 2
@@ -790,7 +782,8 @@ private fun UiController.drawGuideWinModal(canvas: Canvas) {
     }
     textC(canvas, win.title, W / 2, cy + 12f * dp, 15f * dp, Color.WHITE)
     cy += 30f * dp
-    paragraph(canvas, win.text, px + 14f * dp, cy, innerW, 12f * dp, parse("#ccc"))
+    // بدنه‌ی راهنما: بولت‌های راست‌چین منظم (به‌جای پاراگراف وسط‌چین)
+    blockText(canvas, win.text, px + 14f * dp, cy, innerW, 12f * dp, parse("#ccc"), textGap)
     canvas.restore()
 
     button(canvas, px + 14f * dp, py + panelH - 54f * dp, innerW, 44f * dp, "متوجه شدم ✔", null, "primary") {
@@ -800,11 +793,18 @@ private fun UiController.drawGuideWinModal(canvas: Canvas) {
 
 private fun UiController.drawExitConfirm(canvas: Canvas) {
     canvas.drawRect(0f, 0f, W, H, Paint().apply { color = parse("rgba(0,0,0,0.72)") })
+    // لمس بیرون پنل = انصراف (پیش از پنل ثبت می‌شود تا اولویت دکمه‌ها بیشتر باشد)
+    regions.add(Region(RectF(0f, 0f, W, H)) {
+        modal = Modal.NONE
+        host.cancelExit()
+    })
     val panelW = min(320f * dp, W * 0.88f)
     val px = (W - panelW) / 2
     val panelH = 190f * dp
     val py = (H - panelH) / 2
     panel(canvas, px, py, panelW, panelH)
+    // لمس داخل پنل بسته نشود
+    regions.add(Region(RectF(px, py, px + panelW, py + panelH)) { /* مصرف کلیک */ })
     textC(canvas, "خروج از برنامه", W / 2, py + 34f * dp, 17f * dp, Color.WHITE)
     textC(canvas, "آیا می‌خواهید از برنامه خارج شوید؟", W / 2, py + 66f * dp, 12.5f * dp, parse("#bbb"))
     val btnW = (panelW - 40f * dp - 10f * dp) / 2
